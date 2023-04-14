@@ -7,14 +7,12 @@
 
 }
 
-/* set content highlight color and background */
 ::selection {
   background-color: var(--bright-turquoise);
   color: var(--outer-space);
 }
 
 html {
-  /* set 1rem to 10px instead of native 16px to make it easier to calculate font-size values for the rest of the page (e.g. 1.6rem is 16px, 2.0rem is 20px, etc.) */
   font-size: 62.5%;
 }
 
@@ -26,8 +24,9 @@ body {
   background-color: var(--dark);
 }
 
+
 h1 {
-  font-size: 3rem;
+  font-size: 4rem;
   margin-bottom: 10px;
 }
 
@@ -46,7 +45,6 @@ p {
 }
 
 code {
-  /* Monospace font stack is used for our code blocks to make it look more like code */
   font-family: Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console',
     'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono',
     'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier,
@@ -54,7 +52,9 @@ code {
 }
 
 header {
-  padding: 40px;
+  width: 96%;
+  margin: 0 auto;
+  padding: 2.5rem;
   text-align: center;
 }
 
@@ -64,17 +64,14 @@ header h1.page-title {
 }
 
 main {
-  display: grid;
-  width: 100%;
-  flex-wrap: wrap;
+  
+  width: 96%;
+  margin; 2rem;
 }
 
 footer {
-  width: 100%;
-  bottom: 0;
-  padding: 20px;
+  margin: 1.5rem;
   text-align: center;
-  margin-top: auto;
 }
 
 .row {
@@ -89,11 +86,9 @@ footer {
   justify-content: center;
 }
 
-/* using a mobile-first approach, set base column width to be 100% and we'll update it using media queries for larger screen sizes */
 .card-column {
   flex: 1 0 100%;
   padding: 1.5rem;
-  /* when the screen resizes, make it so our columns don't jump in size */
   transition: flex-basis 500ms linear;
   margin-bottom: 1.5rem;
 }
@@ -134,15 +129,12 @@ footer {
   justify-content: flex-start;
   min-height: 100%;
   padding: 2rem;
-
-  /* outline is like border, but on the outside of the box instead of inside */
   outline: 2px dashed var(--white);
   outline-offset: -2px;
   transition: all 0.5s ease-in-out;
 }
 
 .code-card .card-header {
-  /* use position and negative margins to move title of card over the card's outline and create an overlap effect */
   position: relative;
   margin: -4rem 0 1.5rem 0;
   padding: 0.5rem 1rem;
@@ -158,21 +150,18 @@ footer {
   box-shadow: inset 0px 0px 8px var(--hover), 0 0 15px var(--hover);
 }
 
-/* each card's code block grows to the height of the largest code block on the page, making each card even in height */
 .code-card .code-block {
   flex-grow: 1;
   color: white;
 }
 
 .code-card pre {
-  /* set styles to make it so code wraps in <pre> instead of overflowing */
   white-space: pre-wrap;
   overflow: auto;
   tab-size: 4;
   padding: 1.2rem 1rem;
   color: var(--white);
   border-radius: 8px;
-  /* use linear-gradient() function to create a fading background  */
   background-image: linear-gradient(
     rgba(140, 145, 224, 0.3) 0%,
     rgba(20, 163, 163, 0.6) 100%
@@ -186,21 +175,17 @@ footer {
   user-select: all;
 }
 
-/* using a mobile-first approach, use `min-width` values going from narrow -> wide for a responsive design */
 @media screen and (min-width: 768px) {
-  /* on tablets, set columns to only be 50% of the width and not grow */
   .card-column {
     flex: 0 0 50%;
     max-width: 50%;
   }
 
-  /* select the last child to grow to full width if it has space to grow */
   .card-column:last-child {
     flex-grow: 1;
   }
 }
 
-/* media query for larger screens */
 @media screen and (min-width: 992px) {
   header {
     width: 75%;
